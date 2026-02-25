@@ -71,6 +71,9 @@ const main = () => {
         console.log(`Risk Score: ${c.risk}`); // Note: BundleCluster interface has 'High'|'Moderate'|'Low', need to check mapping
     });
 
+    // Check Metrics (Manual inspection of logic via console logs if we could see them, 
+    // but here we check the output class "risk" field)
+
     // We expect the Botnet to be HIGH risk due to:
     // 1. Funding (Same Source) -> +35 (approx)
     // 2. Temporal (Same buy time) -> +30
@@ -84,10 +87,10 @@ const main = () => {
         if (botCluster.risk === 'High') {
             console.log('✅ Module C & D scoring is working (pushed risk to HIGH).');
         } else {
-            console.error('❌ RISK TOO LOW. Check scoring logic.');
+            console.log('❌ RISK TOO LOW. Check scoring logic.');
         }
     } else {
-        console.error('❌ FAILED TO DETECT BOTNET.');
+        console.log('❌ FAILED TO DETECT BOTNET.');
     }
 };
 
